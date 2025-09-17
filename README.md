@@ -22,6 +22,13 @@
 ## write 写入数组
 ```rust
   let path = "data/test.csv";
+  let data = vec![vec!["1".to_string(), "2".to_string()], vec!["3".to_string(), "4".to_string()]];
+  write::<Vec<Vec<String>>>(path, data).expect("msg");
+```
+
+## write 写入对象
+```rust
+  let path = "data/test.csv";
   let data = vec![Row{id:1,bsm:"1".to_string()}];
   write::<Vec<Row>>(path, data).expect("msg");
 ```
