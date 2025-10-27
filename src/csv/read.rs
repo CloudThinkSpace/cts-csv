@@ -14,12 +14,8 @@ where
     let mut rdr = csv::ReaderBuilder::new()
         .has_headers(has_header)
         .from_path(path)?;
-    // 初始化索引
-    let mut index = 0;
     for row in rdr.deserialize() {
         let row: D = row?;
-        index = index + 1;
-        println!("读取csv第{}行数据", index);
         result.push(row);
     }
 
