@@ -9,11 +9,11 @@ where
     S: Serialize,
 {
     create_dir_all(path)?;
-    let file = File::create(format!("{}/{}", path, filename)).expect("Failed to create file");
+    let file = File::create(format!("{}/{}", path, filename))?;
     let mut writer = Writer::from_writer(file);
 
     for row in data {
-        writer.serialize(row).expect("Failed to serialize row");
+        writer.serialize(row)?;
     }
 
     Ok(())
@@ -29,11 +29,11 @@ where
     if let Some(path) = parent_path {
          create_dir_all(path)?;
     }
-    let file = File::create(path).expect("Failed to create file");
+    let file = File::create(path)?;
     let mut writer = Writer::from_writer(file);
 
     for row in data {
-        writer.serialize(row).expect("Failed to serialize row");
+        writer.serialize(row)?;
     }
 
     Ok(())
