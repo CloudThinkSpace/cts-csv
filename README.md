@@ -2,7 +2,21 @@
 ## read 读取数组
 ```rust
   let path = "data/test.csv";
-  let data = read::<Vec<Vec<String>>>(path,true).expect("msg");
+  let data = read::<Vec<String>>(path,true).expect("msg");
+  println!("{:?}", data);
+```
+
+## read_header 读取表头数据
+```rust
+    let path = "data/test.csv";
+    let data = read_header::<String>(path).expect("msg");
+    println!("{:?}", data);
+```
+
+## read 读取数组
+```rust
+  let path = "data/test.csv";
+  let data = read::<Vec<String>>(path,true).expect("msg");
   println!("{:?}", data);
 ```
 
@@ -16,19 +30,19 @@
         pub bsm: String,
     }
     let path = "data/test.csv";
-    let data = read::<Vec<Row>>(path,true).expect("msg");
+    let data = read::<Row>(path,true).expect("msg");
     println!("{:?}", data);
 ```
 ## write 写入数组
 ```rust
   let path = "data/test.csv";
   let data = vec![vec!["1".to_string(), "2".to_string()], vec!["3".to_string(), "4".to_string()]];
-  write::<Vec<Vec<String>>>(path, data).expect("msg");
+  write::<Vec<String>>(path, data).expect("msg");
 ```
 
 ## write 写入对象
 ```rust
   let path = "data/test.csv";
   let data = vec![Row{id:1,bsm:"1".to_string()}];
-  write::<Vec<Row>>(path, data).expect("msg");
+  write::<Row>(path, data).expect("msg");
 ```
