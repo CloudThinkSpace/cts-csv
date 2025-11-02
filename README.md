@@ -9,7 +9,7 @@
 ## read_header 读取表头数据
 ```rust
     let path = "data/test.csv";
-    let data = read_header::<String>(path).expect("msg");
+    let data = read_header::<Vec<String>>(path).expect("msg");
     println!("{:?}", data);
 ```
 
